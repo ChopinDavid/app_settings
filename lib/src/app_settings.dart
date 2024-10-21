@@ -6,11 +6,12 @@ class AppSettings {
   ///
   /// If [type] is supported, opens a specific app settings panel.
   /// If [asAnotherTask] is true, opens the app settings as another task on Android.
-  static Future<void> openAppSettings({
+  Future<void> openAppSettings({
     AppSettingsType type = AppSettingsType.settings,
     bool asAnotherTask = false,
   }) {
-    return AppSettingsPlatform.instance.openAppSettings(type: type, asAnotherTask: asAnotherTask);
+    return AppSettingsPlatform.instance
+        .openAppSettings(type: type, asAnotherTask: asAnotherTask);
   }
 
   /// Open an application settings panel.
@@ -19,7 +20,7 @@ class AppSettings {
   ///
   /// This method does nothing on Android Pie and lower,
   /// as settings panels are only available from Android Q onwards.
-  static Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
+  Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
     return AppSettingsPlatform.instance.openAppSettingsPanel(type);
   }
 }
